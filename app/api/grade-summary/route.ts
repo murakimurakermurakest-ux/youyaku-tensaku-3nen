@@ -249,6 +249,7 @@ export async function POST(req: Request) {
     }
 
     const data = await geminiRes.json();
+    console.log(JSON.stringify(data, null, 2));
     const result =
       data?.candidates?.[0]?.content?.parts?.map((p: any) => p.text).join('\n') ||
       fallback(actualMode);
